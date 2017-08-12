@@ -1,6 +1,7 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 from flask import Blueprint
 
-mian = Blueprint('mian', __name__)
+main = Blueprint('main', __name__)
 
-from . import views, errors
+from . import views  # noqa
+from . import errors  # noqa

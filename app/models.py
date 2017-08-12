@@ -1,6 +1,6 @@
-# coding: utf-8
-from flask.ext.login import UserMixin
-from . import db, login_manager
+# -*- coding: utf-8 -*-
+from flask_login import UserMixin
+from app import db, login_manager
 
 
 # 管理员用户表
@@ -23,13 +23,13 @@ def load_user(user_id):
 
 
 # 学生信息表
-class Stuinfo(db.Model):
-    __tablename__ = 'stuinfo'
+class StuInfo(db.Model):
+    __tablename__ = 'stu_info'
     id = db.Column(db.Integer, primary_key=True)
     stu_name = db.Column(db.String(64), unique=True)
     grade = db.Column(db.String(64), unique=True)
     cla = db.Column(db.String(64), unique=True)
-    assess = db.relationship('Assess', backref='stuinfo')
+    assess = db.relationship('Assess', backref='stu_info')
 
 
 # 公告表
