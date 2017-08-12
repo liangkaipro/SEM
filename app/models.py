@@ -5,8 +5,6 @@ from app import db, login_manager
 
 # 管理员用户表
 class User(UserMixin, db.Model):
-    def __init__(self, **kwargs):
-        pass
 
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
