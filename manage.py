@@ -19,8 +19,6 @@ manager.add_command("shell", shell(make_shell_context))
 def deploy(deploy_type):
     from app.models import User
 
-    upgrade()
-
     if deploy_type == 'product':
         User.insert_admin(username='admin', password='admin')
 
