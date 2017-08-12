@@ -1,9 +1,10 @@
-# -* coding: utf-8 *-
-from flask import render_template, redirect, request, url_for, flash
-from flask.ext.login import login_user, login_required, logout_user
-from . import auth
-from ..models import User
-from .forms import LoginForm
+# -*- coding: utf-8 -*-
+from flask import render_template, url_for, flash
+from flask_login import login_user, login_required, logout_user
+
+from app.auth import auth
+from app.models import User
+from app.auth.forms import LoginForm
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -14,7 +15,7 @@ def login():
         if user is not None and user.verify_password(form.password.data):
             login_user(user)
             flash(u'登陆成功！', 'success')
-            return redirect(request.args.get('next') or url_for(main.index))
+            # return redirect(request.args.get('next') or url_for(main.index))
         else:
             flash(u'登陆失败，请重新登陆！', 'danger')
         if form.errors:
