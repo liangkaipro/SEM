@@ -5,6 +5,9 @@ from app import db, login_manager
 
 # 管理员用户表
 class User(UserMixin, db.Model):
+    def __init__(self, **kwargs):
+        pass
+
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
@@ -70,7 +73,7 @@ class Assess(db.Model):
     shenmei = db.Column(db.String(64), unique=True)
     shijian = db.Column(db.String(64), unique=True)
     gexing = db.Column(db.String(64), unique=True)
-    stuinfo_id = db.Column(db.Integer, db.ForeignKey('stuinfo.id'))
+    stuinfo_id = db.Column(db.Integer, db.ForeignKey('stu_info.id'))
     term = db.Column(db.String(64), unique=True)
 
 

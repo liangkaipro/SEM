@@ -106,3 +106,4 @@ ENV/
 # mac os file
 .DS_Store
 /migrations/
+/data.sqlite
