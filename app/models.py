@@ -65,12 +65,13 @@ class Plugin(db.Model):
 class Assess(db.Model):
     __tablename__ = 'assess'
     id = db.Column(db.Integer, primary_key=True)
-    zeren = db.Column(db.String(64), unique=True)
-    xuexi = db.Column(db.String(64), unique=True)
-    jiankang = db.Column(db.String(64), unique=True)
-    shenmei = db.Column(db.String(64), unique=True)
-    shijian = db.Column(db.String(64), unique=True)
-    gexing = db.Column(db.String(64), unique=True)
+    duty = db.Column(db.String(64), unique=True)  # 责任与担当
+    study = db.Column(db.String(64), unique=True)  # 学习与探究
+    health = db.Column(db.String(64), unique=True)  # 健康与生存
+    taste = db.Column(db.String(64), unique=True)  # 审美与人文
+    practice = db.Column(db.String(64), unique=True)  # 实践与创新
+    pershonality = db.Column(db.String(64), unique=True)  # 个性与发展
+    assess = db.Column(db.Text, unique=True)  # 评价
     stuinfo_id = db.Column(db.Integer, db.ForeignKey('stu_info.id'))
     term = db.Column(db.String(64), unique=True)
 

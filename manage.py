@@ -17,12 +17,12 @@ def make_shell_context():
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
 
+
 # @manager.command
 # def deploy(deploy_type):
 #     from app.models import User
 #     if deploy_type == 'product':
 #         User.insert_admin(username='admin', password='admin')
-
 
 if __name__ == '__main__':
     manager.run()
