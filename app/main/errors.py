@@ -1,6 +1,6 @@
-# coding: utf-8
-from flask import render_template, request, jsonify
-from . import main
+# -*- coding: utf-8 -*-
+from flask import render_template
+from app.main import main
 
 
 @main.app_errorhandler(403)
