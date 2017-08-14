@@ -27,6 +27,7 @@ def load_user(user_id):
 class StuInfo(db.Model):
     __tablename__ = 'stu_info'
     id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer, unique=True)
     stu_name = db.Column(db.String(64), unique=True)
     grade = db.Column(db.String(64), unique=True)
     cla = db.Column(db.String(64), unique=True)
@@ -80,3 +81,23 @@ class Assess(db.Model):
 class Menu(db.Model):
     __tablename__ = 'menu'
     id = db.Column(db.Integer, primary_key=True)
+
+
+# 学生信息显示表
+class StuInfoView(db.Model):
+    __tablename__ = 'stuinfo_view'
+    id = db.Column(db.Integer, primary_key=True)
+    num_of_view = db.Column(db.BigInteger, default=0)
+
+    @staticmethod
+    def insert_view():
+        view = StuInfoView(num_of_view=0)
+        db.session.add(view)
+        db.session.commit()
+
+    @staticmethod
+    def add_view(db):
+        view = StuInfoView.query.first()
+        view.num_of_view += 1
+        db.session.add(view)
+        db.session.commit()
