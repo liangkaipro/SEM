@@ -107,3 +107,6 @@ ENV/
 .DS_Store
 /migrations/
 /data.sqlite
+
+# vscode config file
+/.vscode/
